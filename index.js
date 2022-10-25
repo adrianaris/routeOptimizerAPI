@@ -12,7 +12,3 @@ setInterval(() => {
 server.listen(config.PORT, () => {
   logger(`Server is running on port ${config.PORT}`)
 })
-
-server.get('/health', (request, response) => {
-  response.send('ok')
-})
