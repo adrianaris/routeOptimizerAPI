@@ -47,4 +47,5 @@ app.use(errors.unknownEndpoint)
 app.get('/health', (request, response) => {
   response.send('ok')
 })
+
 module.exports = app
