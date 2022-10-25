@@ -44,8 +44,4 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :P
 app.use(errors.errorHandler)
 app.use(errors.unknownEndpoint)
 
-app.get('/health', (request, response) => {
-  response.send('ok')
-})
-
 module.exports = app
