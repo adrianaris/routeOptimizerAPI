@@ -70,7 +70,7 @@ const callApi = async (coordinates, sourceListLength) => {
     const apiResponse = await axios.get(mapboxUrl)
     return apiResponse.data
   } catch (e) {
-    console.log('matrix api failed with: ', e.status)
+    throw new Error('matrix api failed with: ', e)
   }
 }
 
