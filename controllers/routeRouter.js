@@ -77,9 +77,12 @@ routeRouter.delete('/:id', async (request, response) => {
   }
 
   const route = await Route.findById(request.params.id)
+  const user = await User.findById(decodedToken.id)
   
   if (!route) { return response.status(401).json({ error: 'no route with this id' })}
 
+  user.routes = user.routes.filter(r => r.toString() !== route._id.toString())
+  await User.findByIdAndUpdate(user._id, user)
   await Route.findByIdAndRemove(request.params.id)
   response.status(204).end()
 })
