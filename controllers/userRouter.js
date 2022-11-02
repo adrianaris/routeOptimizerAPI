@@ -131,7 +131,23 @@ userRouter.put('/update', async (request, response) => {
     navigator: body.navigator
   }
 
-  const updatedUser = await User.findByIdAndUpdate(decodedToken.id, updUser, {new: true})
+  await User.findByIdAndUpdate(decodedToken.id, updUser, {new: true})
+  const updatedUser = await User.findOne({ username: updUser.username })
+    .populate({
+      path: 'routes',
+      populate: [
+        {
+          path: 'DEPOT.start'
+        },
+        {
+          path: 'DEPOT.end'
+        },
+        {
+          path: 'addresses.address'
+        }
+      ]
+    })
+  
   const newToken = jwt.sign(
     {
       username: updatedUser.username,
