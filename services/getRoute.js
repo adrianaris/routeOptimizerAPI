@@ -25,6 +25,7 @@ const getRoute = async coordinates => {
 
   for (let i = 0; i < numberOfCalls; i++) {
     const apiRes = await apiCall(coordinates.slice(i * callSize, (i + 1) * callSize))
+    if (apiRes.code === 'NoRoute') return apiRes
     route.code = apiRes.code
     route.waypoints = route.waypoints.concat(apiRes.waypoints)
     route.trips[0] = {

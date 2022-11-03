@@ -27,10 +27,14 @@ optimRouter.post('/', async (request, response) => {
   if (!token || !decodedToken.id) {
       return response.status(401).json({ error: 'token missing  or invalid' })
   }
-
+  
   const addresslist = request.body
-  const data = await optimize(addresslist, 'mapbox')
-  response.json(data)
+  try {
+    const data = await optimize(addresslist, 'mapbox')
+    response.json(data)
+  } catch (error) {
+    return response.status(400).json({ error: error })
+  }
 
   for (let i in addresslist) {
     const checkAddress = await Address

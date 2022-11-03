@@ -29,6 +29,9 @@ const optimize = async (addresslist, service) => {
   const sortedCoord = sorter(coordinates, order)
 
   const route = await getRoute(sortedCoord)
+
+  if (route.code === 'NoRoute') throw 'No Route Found'
+
   const routeGeoJSON = {
     ...featureCollection([
     feature({ ...route.trips[0].geometry })
