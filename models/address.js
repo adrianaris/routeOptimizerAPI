@@ -4,7 +4,6 @@ const uniqueValidator = require('mongoose-unique-validator')
 const addressSchema = new mongoose.Schema({
   address: {
     type: Object,
-    unique: true,
     required: true
   },
   placeId: {

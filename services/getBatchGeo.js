@@ -23,7 +23,7 @@ const getBatchGeo = async addresses => {
       console.log('Job status: ' + response.data.status)
       const apiResponse = await getApiResponse(response.data.url)
       console.log(apiResponse.status)
-      return apiResponse
+      return apiResponse.data
   } catch (e) {
     console.log(e)
   }

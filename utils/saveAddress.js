@@ -1,6 +1,7 @@
 const Address = require('../models/address')
 
 const saveAddress = async locations => {
+  console.log(locations)
   for (let i in locations) {
     const checkAddress = await Address.findOne({ placeId: locations[i].id })
     if (checkAddress === null) {

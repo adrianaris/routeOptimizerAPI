@@ -1,4 +1,5 @@
 const geoapifyParser = addresslist => {
+  console.log(addresslist)
   const coordinates = new Array(addresslist.length).fill([]) 
   for (let i in coordinates) {
     coordinates[i] = coordinates[i].concat(addresslist[i].lon, addresslist[i].lat)

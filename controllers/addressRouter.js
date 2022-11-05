@@ -2,6 +2,7 @@ const addressRouter = require('express').Router()
 const Address = require('../models/address')
 
 addressRouter.post('/', async (request, response) => {
+  console.log(request.body)
   for (let i in request.body) {
     const checkAddress = await Address.findOne({ placeId: request.body[i].id})
     if (checkAddress === null) {

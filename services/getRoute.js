@@ -3,9 +3,7 @@ const config = require('../utils/config')
 
 const getRoute = async coordinates => {
   const callSize = 25
-  let numberOfCalls = Math.floor(coordinates.length / callSize)
-  const remainder = coordinates.length % callSize
-  if (remainder > 0) numberOfCalls++
+  let numberOfCalls = Math.ceil(coordinates.length / callSize)
 
   const route = {
     code: '',

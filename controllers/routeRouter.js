@@ -102,6 +102,7 @@ routeRouter.put('/:id', async (request, response) => {
   const start = await Address.findOne({ placeId: request.body.DEPOT.start.id })
   const end = await Address.findOne({ placeId: request.body.DEPOT.end.id })
   let addresses = []
+  console.log(request.body)
   for (let i in request.body.addresses) {
     const address = await Address.findOne({ placeId: request.body.addresses[i].id })
     addresses = addresses.concat({

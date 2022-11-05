@@ -6,20 +6,24 @@ const addressFormatter = require('../utils/geoapifyAddressFormatter')
 const jwt = require('jsonwebtoken')
 const Address = require('../models/address')
 
-const testAddresses = require('../ORtools/testAddresses')
-const exampleMatrix = require('../ORtools/exampleMatrixResult')
+// const testAddresses = require('../ORtools/testAddresses')
+// const exampleMatrix = require('../ORtools/exampleMatrixResult')
+// const getAddressesFromXL = require('../utils/xlsParser')
+// const fileName = './ORtools/nog te doen vlaams brabant.xlsx'
+// const forGeocoding = getAddressesFromXL(fileName)
 
 /**
  * for testing
  */
-optimRouter.get('/geoapify', async (request, response) => {
-  //const addresslist = await getBatchGeo(addresses) 
-  const addresslist = testAddresses
-  const data = await optimize(addresslist, 'geoapify')
-  const formattedAddressList = addressFormatter(data.orderedAddresslist)
-  data.orderedAddresslist = formattedAddressList //formated for mapbox
-  response.json(data)
-})
+// optimRouter.get('/geoapify', async (request, response) => {
+//   const forGeocoding = await getAddressesFromXL(fileName)
+//   const addresslist = await getBatchGeo(forGeocoding) 
+//   //const addresslist = testAddresses
+//   const data = await optimize(addresslist, 'geoapify')
+//   const formattedAddressList = addressFormatter(data.orderedAddresslist)
+//   data.orderedAddresslist = formattedAddressList //formated for mapbox
+//   response.json(data)
+// })
 
 optimRouter.post('/', async (request, response) => {
   const token = request.token
