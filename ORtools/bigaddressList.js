@@ -1,4 +1,4 @@
-[
+const bigAddressList = [
 {
 query: {
 text: "Straat, Postcode, Stad, Belgium"
@@ -14734,7 +14734,7 @@ postcode: "3473",
 city: "waanrode",
 country: "belgium",
 expected_type: "building"
-}:
+},
 },
 datasource: {
 sourcename: "openstreetmap",
@@ -14833,3 +14833,5 @@ match_type: "full_match"
 place_id: "5187cdfce729e0154059c964635fd8634940c00207920308546f6e676572656e"
 }
 ]
+
+module.exports = bigAddressList

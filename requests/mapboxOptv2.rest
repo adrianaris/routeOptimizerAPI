@@ -1,0 +1,36 @@
+POST https://api.mapbox.com/optimized-trips/v2?access_token=pk.eyJ1IjoiYWRyaWFuYXJpcyIsImEiOiJja3kzOTl0YzkwdGZuMm5xdHJzMHJ5b2p4In0.kXH2cOyOUq6WIOmYH5sKAA
+Host: api.mapbox.com
+Content-Type: application/json
+
+{
+    "version": 1,    
+    "locations": [
+    {
+        "name": "warehouse",
+        "coordinates": [ -121, 35.812 ]
+    },
+    {
+        "name": "123 Address Street",
+        "coordinates": [ -122.1234, 37.812 ]
+    }
+    ],
+    "vehicles": [
+    {
+        "name": "truck-1",
+        "routing_profile": "mapbox/driving",
+        "start_location": "warehouse",
+        "end_location": "warehouse",
+        "capacities": {
+            "volume": 3000,
+            "weight": 1000,
+            "boxes": 100
+        }
+    }
+    ],
+    "shipments": [
+    {
+    "name": "order-1234",
+    "from": "warehouse",
+    "to": "123 Address Street"
+    }]
+}
